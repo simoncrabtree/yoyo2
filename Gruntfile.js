@@ -12,6 +12,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
     connect: {
@@ -37,6 +38,17 @@ module.exports = function (grunt) {
       server: {
         url: 'http://localhost:<%= connect.livereload.options.port %>'
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        reporters: ['growl', 'progress'],
+        autoWatch: true
+      },
+      build: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
     }
   });
 
@@ -44,5 +56,13 @@ module.exports = function (grunt) {
    'livereload-start',
    'connect',
    'regarde'
+  ]);
+
+  grunt.registerTask('autotest', [
+    'karma:unit'
+  ]);
+
+  grunt.registerTask('build', [
+    'karma:build'
   ]);
 };
