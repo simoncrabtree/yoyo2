@@ -1,9 +1,9 @@
-angular.module('app', []);
+var app = angular.module('app', []);
 
-angular.module('app').value('model', {
-  title: "Test App"
+app.value('model', {
+  title: "a Test App"
 });
 
-angular.module('app').controller('AppController', function (model, $scope) {
+app.controller('AppController', function (model, $scope) {
   $scope.greeting = 'Hello World! this is ' + model.title;
 });
