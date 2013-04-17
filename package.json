@@ -1,0 +1,11 @@
+{
+  "name": "yoyo2",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.2.0",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-open": "~0.2.0",
+    "grunt-regarde": "~0.1.1"
+  }
+}
