@@ -7,14 +7,14 @@
   <title>Test</title>
   <link href='style/bootstrap.css' rel='stylesheet'>
   <script src='lib/angular.js'></script>
+  <script src='js/app.js'></script>
   <!--[if lt IE 9]>
   <script src="./lib/es5-shim.min.js"></script>
   <script src="./lib/json3.min.js"></script>
   <![endif]-->
 </head>
-<body ng-app id="ng-app">
-
-  <h1>Hello World</h1>
+<body ng-app='app' ng-controller='AppController' id="ng-app">
+    <h1>{{greeting}}</h1>
   <p>
   {{1 + 1}}
   </p>
