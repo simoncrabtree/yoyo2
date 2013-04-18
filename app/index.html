@@ -16,7 +16,7 @@
 <body ng-app='app' ng-controller='AppController' id="ng-app">
     <h1>{{greeting}}</h1>
   <p>
-  You have <span ng-bind='taskCount'></span> tasks
+  <span ng-bind='taskSummaryMessage'></span>
   </p>
   <ul>
       <li ng-repeat='task in tasks'>{{task.description}}</li>

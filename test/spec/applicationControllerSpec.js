@@ -1,6 +1,10 @@
-var model, scope, controller, createController;
-
 describe('App Controller', function () {
+    var model, scope, controller, createController;
+
+    function setupController (model) {
+        controller = createController('AppController', {model: model, $scope: scope});
+    }
+
     beforeEach(module('app'));
     beforeEach(inject(function ($controller, $rootScope) {
         createController = $controller;
@@ -15,7 +19,7 @@ describe('App Controller', function () {
                     {id: '1', description: 'Task One'}
                 ]
             };
-            controller = createController('AppController', {model: model, $scope: scope});
+            setupController(model);
         });
 
         it('Should glue the title to the greeting', inject(function ($controller, $rootScope) {
@@ -40,7 +44,7 @@ describe('App Controller', function () {
         beforeEach(function () {
             model = {
             }
-            controller = createController('AppController', {model: model, $scope: scope});
+            setupController(model);
         });
 
         it('Should display a "No Tasks" message', function () {
