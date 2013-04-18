@@ -1,5 +1,5 @@
-<div ng-controller='ShoppingListController'>
-<ul>
-    <li ng-repeat='item in shoppingListItems'>{{item.description}}</li>
-</ul>
+<div>
+    <ul>
+        <li ng-repeat='item in shoppingListItems'><span ng-bind='item.description'></span></li>
+    </ul>
 </div>

@@ -18,9 +18,11 @@ angular.module('app').config(function ($stateProvider) {
     })
     .state('shoppinglist', {
         url: '/shoppinglist',
+        controller: 'ShoppingListController',
         templateUrl: 'views/shoppinglist.html'
     })
     .state('cupboard', {
+        controller: 'CupboardController',
         templateUrl: 'views/cupboard.html'
     })
     .state('cupboard.all', {
