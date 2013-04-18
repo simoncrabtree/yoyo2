@@ -17,7 +17,7 @@ describe('App Controller', function () {
     describe('Given the model has a title', function () {
         beforeEach(function () {
             model = {
-                title: 'Test Title',
+                appName: 'Test Title',
                 tasks: [
                     {id: '1', description: 'Task One'}
                 ]
@@ -25,9 +25,9 @@ describe('App Controller', function () {
             setupController(model);
         });
 
-        it('Should glue the title to the greeting', inject(function ($controller, $rootScope) {
+        it('Displays a Welcome message in the heading', inject(function ($controller, $rootScope) {
             expect(controller).toBeTruthy();
-            expect(scope.greeting).toBe('Hello World! this is Test Title');
+            expect(scope.heading).toBe('Welcome to Test Title');
         }));
 
         it('Should display the number of tasks', function () {

@@ -1,7 +1,7 @@
 angular.module('app', ['ui.compat']);
 
 angular.module('app').value('model', {
-    title: "a Test App",
+    appName: "Kanboard",
     tasks: [
         {id: '1', description: 'Controller Unit Tests'},
         {id: '2', description: 'Responsive layout'},

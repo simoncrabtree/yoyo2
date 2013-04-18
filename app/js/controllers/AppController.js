@@ -1,6 +1,6 @@
 angular.module('app').controller('AppController', function (model, $scope, $state) {
     $state.transitionTo('home');
-    $scope.greeting = 'Hello World! this is ' + model.title;
+    $scope.heading =  'Welcome to ' + model.appName;
     $scope.taskCount = model.tasks ? model.tasks.length : 0;
     $scope.tasks = model.tasks;
     if ($scope.tasks) {
