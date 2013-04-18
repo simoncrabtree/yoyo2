@@ -1,7 +1,6 @@
 angular.module('app').controller('AppController', function (model, $scope, $state) {
     $state.transitionTo('home');
     $scope.$on('$stateChangeSuccess', function (evt, state) {
-        console.log('State Change',state);
         $scope.currentState = state;
     });
     $scope.navMenu = [
