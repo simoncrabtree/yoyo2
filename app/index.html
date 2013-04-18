@@ -16,7 +16,10 @@
 <body ng-app='app' ng-controller='AppController' id="ng-app">
     <h1>{{greeting}}</h1>
   <p>
-  {{1 + 1}}
+  You have <span ng-bind='taskCount'></span> tasks
   </p>
+  <ul>
+      <li ng-repeat='task in tasks'>{{task.description}}</li>
+  </ul>
 </body>
 </html>
