@@ -20,6 +20,16 @@ angular.module('app').config(function ($stateProvider) {
         url: '/shoppinglist',
         templateUrl: 'views/shoppinglist.html'
     })
+    .state('cupboard', {
+        templateUrl: 'views/cupboard.html'
+    })
+    .state('cupboard.all', {
+        url: '/cupboard',
+        templateUrl: 'views/cupboard.all.html'
+    })
+    .state('cupboard.needsusing', {
+        templateUrl: 'views/cupboard.usenow.html'
+    })
     .state('about', {
         url: '/about',
         templateUrl: 'views/about.html'
