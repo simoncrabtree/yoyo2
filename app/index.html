@@ -10,6 +10,7 @@
 <script src='lib/angular-ui-states.min.js'></script>
 <script src='js/app.js'></script>
 <script src='js/controllers/AppController.js'></script>
+<script src='js/controllers/ShoppingListController.js'></script>
 <!--[if lt IE 9]>
   <script src="./lib/es5-shim.min.js"></script>
   <script src="./lib/json3.min.js"></script>
@@ -17,6 +18,13 @@
 </head>
 <body ng-app='app' ng-controller='AppController' id="ng-app">
 <div class='container'>
+    <div class='navbar'>
+        <div class='navbar-inner'>
+            <ul class='nav'>
+                <li ng-repeat='item in navMenu' class='{{isCurrentState(item.state)}}'><a href='{{item.href}}'>{{item.label}}</a></li>
+            </ul>
+        </div>
+    </div>
     <h1 class='hero-unit' ng-bind='heading'></h1>
     <div ui-view></div>
 </div>

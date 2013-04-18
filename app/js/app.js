@@ -1,7 +1,8 @@
 angular.module('app', ['ui.compat']);
 
 angular.module('app').value('model', {
-    appName: "Kanboard",
+    appName: "Cubdi",
+
     tasks: [
         {id: '1', description: 'Controller Unit Tests'},
         {id: '2', description: 'Responsive layout'},
@@ -14,6 +15,10 @@ angular.module('app').config(function ($stateProvider) {
     .state('home', {
         url: '/home',
         templateUrl: 'views/home.html'
+    })
+    .state('shoppinglist', {
+        url: '/shoppinglist',
+        templateUrl: 'views/shoppinglist.html'
     })
     .state('about', {
         url: '/about',
