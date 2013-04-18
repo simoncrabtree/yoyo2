@@ -1,8 +1,11 @@
 describe('App Controller', function () {
-    var model, scope, controller, createController;
+    var model, scope, controller, createController, state;
 
     function setupController (model) {
-        controller = createController('AppController', {model: model, $scope: scope});
+        state = {
+            transitionTo: function () {}
+        };
+        controller = createController('AppController', {model: model, $scope: scope, $state: state});
     }
 
     beforeEach(module('app'));

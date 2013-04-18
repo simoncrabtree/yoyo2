@@ -1,4 +1,5 @@
-angular.module('app').controller('AppController', function (model, $scope) {
+angular.module('app').controller('AppController', function (model, $scope, $state) {
+    $state.transitionTo('home');
     $scope.greeting = 'Hello World! this is ' + model.title;
     $scope.taskCount = model.tasks ? model.tasks.length : 0;
     $scope.tasks = model.tasks;
