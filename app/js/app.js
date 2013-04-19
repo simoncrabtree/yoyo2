@@ -1,4 +1,4 @@
-angular.module('app', ['ui.compat']);
+angular.module('app', ['ui.compat', 'ui.bootstrap']);
 
 angular.module('app').value('model', {
     appName: "Cubdi",
@@ -44,6 +44,7 @@ angular.module('app').config(function ($stateProvider) {
     })
     .state('about', {
         url: '/about',
+        controller: 'AboutController',
         templateUrl: 'views/about.html'
     });
 });
