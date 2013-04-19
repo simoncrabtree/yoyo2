@@ -7,7 +7,13 @@ angular.module('app').value('model', {
         {id: '1', description: 'Controller Unit Tests'},
         {id: '2', description: 'Responsive layout'},
         {id: '3', description: 'Other stuff'}
-    ]
+    ],
+
+    shoppingList: {
+      items: [
+
+      ]
+    }
 });
 
 angular.module('app').config(function ($stateProvider) {
@@ -22,7 +28,8 @@ angular.module('app').config(function ($stateProvider) {
         templateUrl: 'views/shoppinglist.html'
     })
     .state('addItemToShoppingList', {
-        templateUrl: 'views/shoppinglist.addItem.html'
+        url: '/addItemToShoppingList',
+        templateUrl: 'views/addItemToShoppingList.html'
     })
     .state('cupboard', {
         controller: 'CupboardController',

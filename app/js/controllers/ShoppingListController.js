@@ -1,9 +1,5 @@
-angular.module('app').controller('ShoppingListController', function ($scope, $state) {
-    $scope.shoppingListItems = [
-        {id: '1', description: 'Cheese'},
-        {id: '2', description: 'Bacon'},
-        {id: '3', description: 'Sausages'}
-    ];
+angular.module('app').controller('ShoppingListController', function ($scope, $state, model) {
+    $scope.shoppingListItems = model.shoppingList.items;
 
     $scope.addItem = function () {
         $state.transitionTo('addItemToShoppingList');
