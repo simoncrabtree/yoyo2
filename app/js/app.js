@@ -21,6 +21,9 @@ angular.module('app').config(function ($stateProvider) {
         controller: 'ShoppingListController',
         templateUrl: 'views/shoppinglist.html'
     })
+    .state('addItemToShoppingList', {
+        templateUrl: 'views/shoppinglist.addItem.html'
+    })
     .state('cupboard', {
         controller: 'CupboardController',
         templateUrl: 'views/cupboard.html'
