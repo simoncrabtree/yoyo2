@@ -13,6 +13,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-recess');
 
   grunt.initConfig({
     connect: {
@@ -49,6 +50,16 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    recess: {
+      dist: {
+        options: {
+          compile: true
+        },
+        files: {
+          'app/style.css': ['app/style/theme1.less']
+        }
+      }
     }
   });
 
@@ -63,6 +74,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'recess:dist',
     'karma:build'
   ]);
 };
