@@ -14,6 +14,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.initConfig({
     connect: {
@@ -54,27 +56,50 @@ module.exports = function (grunt) {
     recess: {
       dist: {
         options: {
-          compile: true
+          compile: true,
+          compress: false
         },
         files: {
-          'app/style.css': ['app/style/theme1.less']
+          'dist/app/style/style.css': ['app/style/theme1.less']
         }
+      }
+    },
+    concat: {
+      dist: {
+        files: {
+          'dist/app/js/app.js': [
+            'app/js/**/*.js'
+          ]
+        }
+      }
+    },
+    copy: {
+      dist: {
+        files: [
+          {src: 'server.js', dest: 'dist/server.js'},
+          {src: 'app/indexdist.html', dest: 'dist/app/index.html'},
+          {src: 'app/views/**/*', dest: 'dist/'},
+          {expand: true, cwd: 'app/libdist/', src: '*.js', dest: 'dist/app/lib/'}
+        ]
       }
     }
   });
 
   grunt.registerTask('server', [
-   'livereload-start',
-   'connect',
-   'regarde'
+                     'livereload-start',
+                     'connect',
+                     'regarde'
   ]);
 
   grunt.registerTask('autotest', [
-    'karma:unit'
+                     'karma:unit'
   ]);
 
   grunt.registerTask('build', [
-    'recess:dist',
-    'karma:build'
+                     'karma:build',
+                     'concat:dist',
+                     'recess:dist',
+                     'copy:dist'
   ]);
+
 };
