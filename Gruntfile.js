@@ -11,9 +11,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-regarde');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-livereload');
-    grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-recess');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -35,7 +33,7 @@ module.exports = function (grunt) {
         regarde: {
             less: {
                 files: appRoot + '/style/*.less',
-                tasks: ['less', 'livereload']
+                tasks: ['less:dev', 'livereload']
             },
             all: {
                 files: [
@@ -43,11 +41,6 @@ module.exports = function (grunt) {
                     appRoot + '/**/*.html'
                 ],
                 tasks: ['livereload']
-            }
-        },
-        open: {
-            server: {
-                url: 'http://localhost:<%= connect.livereload.options.port %>'
             }
         },
         karma: {
@@ -59,17 +52,6 @@ module.exports = function (grunt) {
             build: {
                 configFile: 'karma.conf.js',
                 singleRun: true
-            }
-        },
-        recess: {
-            dist: {
-                options: {
-                    compile: true,
-                    compress: false
-                },
-                files: {
-                    'dist/app/style/style.css': ['app/style/theme1.less']
-                }
             }
         },
         concat: {
@@ -101,6 +83,13 @@ module.exports = function (grunt) {
                 src: '*.less',
                 dest: 'app/style',
                 ext: '.css'
+            },
+            build: {
+                expand: true,
+                cwd: 'app/style',
+                src: '*.less',
+                dest: 'dist/app/style',
+                ext: '.css'
             }
         }
     });
@@ -118,7 +107,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
                        'karma:build',
                        'concat:dist',
-                       'recess:dist',
+                       'less:build',
                        'copy:dist'
     ]);
 
