@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         },
         regarde: {
             less: {
-                files: appRoot + '/style/*.less',
+                files: appRoot + '/themes/*.less',
                 tasks: ['less:dev', 'livereload']
             },
             all: {
@@ -76,26 +76,27 @@ module.exports = function (grunt) {
         },
         less: {
             options: {
-                paths: ['app/style']
+                paths: ['app/themes']
             },
             dev: {
                 expand: true,
-                cwd: 'app/style',
+                cwd: 'app/themes',
                 src: '*.less',
-                dest: 'app/style',
+                dest: 'app/css',
                 ext: '.css'
             },
             build: {
                 expand: true,
-                cwd: 'app/style',
+                cwd: 'app/themes',
                 src: '*.less',
-                dest: 'dist/app/style',
+                dest: 'dist/app/css',
                 ext: '.css'
             }
         }
     });
 
     grunt.registerTask('server', [
+                       'less:dev',
                        'livereload-start',
                        'connect',
                        'regarde'
