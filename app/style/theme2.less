@@ -1,9 +1,13 @@
 @import "bootstrap/bootstrap.less"; // Modify this for custom colors, font-sizes, etc
 
 @bodyBackground: #383838;
-@textColor: #B4E0E8;
-@heroUnitTextColor: red;
+@textColor: #e1e1e1;
+@heroUnitTextColor: #f20505;
 
-@heroUnitBackground: #333;
-@heroUnitHeadingColor: @heroUnitTextColor;
-@heroUnitLeadColor: @heroUnitTextColor;
+@heroUnitBackground: darken(@bodyBackground, 3%);
+@heroUnitHeadingColor: (@heroUnitTextColor);
+@heroUnitLeadColor: fadeout(@textColor, 50%);
+
+@btnBackground: red;
+@btnBackgroundHighlight: blue;
+
