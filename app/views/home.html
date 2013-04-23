@@ -1,7 +1,9 @@
-<h1 class='hero-unit' ng-bind='heading'></h1>
-<p>
+<div class='hero-unit'>
+    <h1 ng-bind='heading'></h1>
+    <p>
     <span ng-bind='taskSummaryMessage'></span>
-</p>
+    </p>
+</div>
 <ul>
     <li ng-repeat='task in tasks'>{{task.description}}</li>
 </ul>
